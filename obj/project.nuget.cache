@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "dupBaSCHdb8SFyve59bVf2wOyW83/8FW0OlIg3oJFsJHSWBseYQT+gqLkpUvQyRgaHid7OoQUxUm1u6Dw2+dhQ==",
+  "dgSpecHash": "2UfG6foH+TK09tsic3iKwO9A3HlTPPg6wUfvHXdLb1Jbt6JIrHmSDrCwAjhcqeMBM8N3o2fXReoADluvyMnOIw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Feron Velox\\source\\Hellmo\\Hellmo.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/velox/Hellmo/Hellmo.csproj",
+  "expectedPackageFiles": [
+    "/home/velox/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.9/microsoft.aspnetcore.app.ref.6.0.9.nupkg.sha512"
+  ],
   "logs": []
 }

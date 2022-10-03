@@ -1,24 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Feron Velox\\source\\Hellmo\\Hellmo.csproj": {}
+    "/home/velox/Hellmo/Hellmo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Feron Velox\\source\\Hellmo\\Hellmo.csproj": {
+    "/home/velox/Hellmo/Hellmo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Feron Velox\\source\\Hellmo\\Hellmo.csproj",
+        "projectUniqueName": "/home/velox/Hellmo/Hellmo.csproj",
         "projectName": "Hellmo",
-        "projectPath": "C:\\Users\\Feron Velox\\source\\Hellmo\\Hellmo.csproj",
-        "packagesPath": "C:\\Users\\Feron Velox\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Feron Velox\\source\\Hellmo\\obj\\",
+        "projectPath": "/home/velox/Hellmo/Hellmo.csproj",
+        "packagesPath": "/home/velox/.nuget/packages/",
+        "outputPath": "/home/velox/Hellmo/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Feron Velox\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/velox/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
@@ -45,12 +48,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.9, 6.0.9]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }

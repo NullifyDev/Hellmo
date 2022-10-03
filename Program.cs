@@ -7,7 +7,6 @@ namespace Hellmo {
             Console.Clear();
             string[] script;
             int p = 0;
-            int[] stack = new int[Int16.MaxValue-1];
             Outputln("\\C Elmo Welcomes you to Hell! \nEnjoy your stay while you can! Haha!");
             Outputln("[Please enter your script]");
             string input = Console.ReadLine();
@@ -22,6 +21,7 @@ namespace Hellmo {
                 }
                 string contents = Files.Read(filename);
                 script = contents.Replace("\r\n", " ").Split(' ');
+                int[] stack = new int[script.Length];
                 foreach(string x in script) {
                     switch(x) {
                         case "0x00":
