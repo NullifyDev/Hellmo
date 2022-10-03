@@ -4,7 +4,7 @@ using System;
 
 namespace Hellmo
 {
-    public static partial class Terminal
+    public static class Terminal
     {
         public static void Error(string message) => Console.WriteLine($"\u001b[31m{message}\u001b[0m");
         public static void Warning(string message) => Console.WriteLine($"\u001b[33m{message}\u001b[0m");

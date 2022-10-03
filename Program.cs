@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using static Hellmo.Terminal;
+using Hellmo;
 // Hellmo.Files;
 namespace Hellmo {
     class Program {
@@ -20,12 +22,15 @@ namespace Hellmo {
                     Environment.Exit(0);
                 }
                 string contents = Files.Read(filename);
-                script = contents.Replace("\r\n", " ").Split(' ');
-                int[] stack = new int[script.Length];
+                script = contents.Replace("\n", " ").Split(" ");
+                List<int> stack = new List<int> { 0 };
                 foreach(string x in script) {
+                    if (x.StartsWith("\n")) x.Remove(0,2);
                     switch(x) {
                         case "0x00":
-                             Outputln("["+x+"]: Exit");
+                            Output("[");
+                            foreach (var y in stack) { Output(y.ToString());}
+                            Outputln("]");
                             Environment.Exit(0);
                             break;                            
                         case "0x01":
@@ -36,10 +41,10 @@ namespace Hellmo {
                             p--;
                             break;                            
                         case "0x03":
-                            stack[p] += 1;
-                            break;                            
+                            Utils.ModAt(stack, p, 1);
+                            break;
                         case "0x04":
-                            stack[p] -= 1;
+                            Utils.ModAt(stack, p, -1);
                             break; 
                         case "0x05":
                             int jmpTo = stack[p+1]; // Jump if condition is true/matches
@@ -53,51 +58,14 @@ namespace Hellmo {
                             }
                             break;                                
                     }
-                    Outputln("["+x+"]: "+p.ToString() + ": " + stack[p].ToString());
+                    // Outputln("["+x+"]: "+p.ToString() + ": " + stack[p].ToString());
                 }
-                foreach (var x in stack) { if (x > 0) { Output(x.ToString(), 1); } }
+                Output("[");
+                foreach (var y in stack) { Output(y.ToString());}
+                Outputln("]");
             } else {
                 Outputln("\\R Error: No script found."); Environment.Exit(0);
             }
         }
     }
 } 
-
-
-/*
-switch (program[p]) {
-            case 0x00:
-                outputln("0x00");
-                exit(0);
-                break;
-            case 0x01:
-                outputln("0x01");
-                p++;
-                break;
-            case 0x02:
-                outputln("0x02");
-                p--;
-                break;
-            case 0x03:
-                outputln("0x03");
-                stack[p]++;
-                break;
-            case 0x04:
-                outputln("0x04");
-                stack[p]--;
-                break;
-            case 0x05:
-                outputln("0x05");
-                //  Set the variable into the value of the specified position relative to current position   
-                int jmpTo = stack[p+1]; // Jump if condition is true/matches
-                int pos   = stack[p+2]; // Position of target bit we are trying to check 
-                int bit   = stack[p+3]; // what we are looking for within the pos
-
-                if (stack[pos] == bit) {
-                    p = jmpTo;
-                } else {
-                    p += 4;
-                }
-                break;
-        }
-*/

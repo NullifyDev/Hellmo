@@ -21,3 +21,10 @@ C:/Users/Feron Velox/source/Hellmo/obj/Debug/net6.0/ref/Hellmo.dll
 /home/velox/Hellmo/obj/Debug/net6.0/Hellmo.dll
 /home/velox/Hellmo/obj/Debug/net6.0/refint/Hellmo.dll
 /home/velox/Hellmo/obj/Debug/net6.0/Hellmo.pdb
+/home/velox/Hellmo/bin/Debug/net6.0/Hellmo
+/home/velox/Hellmo/bin/Debug/net6.0/Hellmo.deps.json
+/home/velox/Hellmo/bin/Debug/net6.0/Hellmo.runtimeconfig.json
+/home/velox/Hellmo/bin/Debug/net6.0/Hellmo.dll
+/home/velox/Hellmo/bin/Debug/net6.0/Hellmo.pdb
+/home/velox/Hellmo/obj/Debug/net6.0/Hellmo.genruntimeconfig.cache
+/home/velox/Hellmo/obj/Debug/net6.0/ref/Hellmo.dll
