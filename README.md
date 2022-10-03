@@ -20,10 +20,10 @@ Due to the fact that this is C#, developedd with .Net 6, All of the Desktop Oper
 If the if statement is true, it will jump to the targeted adddress (in this case, if (Address 13 is equal to 14, jump to address 15)).
 Otherwise, it will skip 3 addresses (in the example below, right after `0xF`)
 
-`0x05 0xD 0x0E 0xF`:
- "If"  "this addr"  "is this value"  "Jump to this point"
- 0x05     0xD             0xE                 0xF
-  if      [13]            [14]                [15] 
+`0x05 0xD 0x0E 0xF`:<br>
+ "If"  "this addr"  "is this value"  "Jump to this point"<br>
+ 0x05     0xD             0xE                 0xF<br>
+  if      [13]            [14]                [15] <br>
 
 <img src="image.webp" alt="drawing" width="200"/>
 
