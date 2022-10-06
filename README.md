@@ -9,13 +9,16 @@ Due to the fact that this is C#, developedd with .Net 6, All of the Desktop Oper
  - [x] MacOS
 
  ### Documentation <br>
- `0x00` Exit <br>
+ `0x0b` Exit <br>
  `0x01` mov up <br>
  `0x02` mov down <br>
- `0x03` Incr pointer <br>
- `0x04` Decr pointer <br>
- `0x05` JIT (Jump if True)
- 
+ `0x03` In current script, Jump to this instruction <br>
+ `0x04` In stack, Jump to this adress <br>
+ `0x05` increment current address by 1 <br>
+ `0x06` decrement current address by 1 <br>
+ `0x07` Set this address to this value <br>
+ `0x08` if statement
+
  #### If statement
 If the if statement is true, it will jump to the targeted adddress (in this case, if (Address 13 is equal to 14, jump to address 15)).
 Otherwise, it will skip 3 addresses (in the example below, right after `0xF`)
