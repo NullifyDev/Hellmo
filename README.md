@@ -13,7 +13,7 @@ Due to the fact that this is C#, developedd with .Net 6, All of the Desktop Oper
  `0x01` mov up <br>
  `0x02` mov down <br>
  `0x03` In current script, Jump to this instruction <br>
- `0x04` In stack, Jump to this adress <br>
+ `0x04` In stack, Jump to this address <br>
  `0x05` increment current address by 1 <br>
  `0x06` decrement current address by 1 <br>
  `0x07` Set this address to this value <br>
