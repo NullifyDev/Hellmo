@@ -17,7 +17,8 @@ Due to the fact that this is C#, developedd with .Net 6, All of the Desktop Oper
  `0x05` increment current address by 1 <br>
  `0x06` decrement current address by 1 <br>
  `0x07` Set this address to this value <br>
- `0x08` if statement
+ `0x08` Print (To be further developped) <br>
+ `0x09` if statement
 
  #### If statement
 If the if statement is true, it will jump to the targeted adddress (in this case, if (Address 13 is equal to 14, jump to address 15)).
