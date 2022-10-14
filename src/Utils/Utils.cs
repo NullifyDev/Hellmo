@@ -1,11 +1,6 @@
-using System.Reflection;
-using System.Data;
-using System;
-
-namespace Hellmo
-{
-    public static class Terminal
-    {
+namespace Velox {
+    public static class Utils {
+        public static async void Sleep(int ms) => await Task.Delay(ms);
         public static void Error(string message) => Console.WriteLine($"\u001b[31m{message}\u001b[0m");
         public static void Warning(string message) { 
             Console.WriteLine($"\u001b[33m{message}\u001b[0m"); 
@@ -42,7 +37,6 @@ namespace Hellmo
             }
             else Console.Write($"{line}");
         }
-        public static void Outputln(string msg) => Terminal.Output(msg, 1);
+        public static void Outputln(string msg) => Utils.Output(msg, 1);
     }
-
 }

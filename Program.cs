@@ -1,31 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using static Hellmo.Terminal;
-using Hellmo;
-// Hellmo.Files;
-namespace Hellmo {
+﻿namespace Velox {
     class Program {
+        private static Velox.Lexer? lexer;
         static void Main(string[] args) {
-            // Console.Clear();
-            if (args.Length == 0) {
-                Outputln("[Please enter your script]");
-                string? input = Console.ReadLine();
-                if (input.StartsWith(">")) Parser.Parse(input.Split(' '));
-                else if (input.StartsWith("file:")) {
-                    Start(input);
-                } else Error("Error: No script found.");
-            } else {
-                if (args[0].StartsWith("file:")) {
-                    Start(args[0]);
-                } else Error("Error: No script found.");
+            Console.Clear();
+            string filename = "";
+            if (args.Length > 0) {
+                string[] Switch = {};
+                foreach(string x in args) {
+                    if (x.StartsWith("/")){
+                        Switch.Append(x);
+                    } else if (x.EndsWith(".hm")) {
+                        filename = x;
+                    } else {
+                        Utils.Error($"[Argument Error]: Invalid argument: {x}");
+                    }
+                }
+                if (!File.Exists(filename)) Utils.Error($"Error: Couldn't find {filename} in the current directory.");
+
+                lexer = new Velox.Lexer(File.ReadAllText(args[0]));
+                var tokens = lexer.Scan();
+
+                Parser parser = new Parser(tokens);
+                parser.Parse(tokens);
             }
         }
-
-        private static void Start(string path) {
-            string filename = path.Remove(0,5);
-            if (!File.Exists(filename)) Error("Error: The file \""+ path.Remove(0,5) + "\" was not found.");
-            string[] script = Files.Read(filename).Replace("\n", " ").Split(" ");
-            Parser.Parse(script);
-        }
     }
-} 
+}

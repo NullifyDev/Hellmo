@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2UfG6foH+TK09tsic3iKwO9A3HlTPPg6wUfvHXdLb1Jbt6JIrHmSDrCwAjhcqeMBM8N3o2fXReoADluvyMnOIw==",
+  "dgSpecHash": "N3iYQgZ1Gofal6eJn5qzboLCFVY4tHRYQVAm9FLTWW8duHbuD85lpk0U0M0WQ3OeoN9tqJDydSXfKM9IEyjdgg==",
   "success": true,
-  "projectFilePath": "/home/velox/Hellmo/Hellmo.csproj",
+  "projectFilePath": "/home/velox/velox/velox.csproj",
   "expectedPackageFiles": [
+    "/home/velox/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/home/velox/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.9/microsoft.aspnetcore.app.ref.6.0.9.nupkg.sha512"
   ],
   "logs": []
