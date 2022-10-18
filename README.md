@@ -1,7 +1,7 @@
 # Hellmo
-Elmo welcomes you to hell! 
-This is a low-to-high-end languge, designed to be flexible.
-Much like America, we like to save keystrokes by unnecessarily removing all important things like `+`. And instead of typing `System.Console.WriteLine("Hello World!");`, you have `0x08 "Hello World!"`
+Elmo welcomes you to hell!<br>
+This is a low-to-high-end languge, designed to be flexible.<br>
+Much like America, we like to save keystrokes by unnecessarily removing all important things like `+`. And instead of typing `System.Console.WriteLine("Hello World!");`, you have `0x08 "Hello World!"`<br>
 Geting use to this may be hard. But once you get the hang of it, it might get easy to use (depending on who you ask).
 
 ### Support
