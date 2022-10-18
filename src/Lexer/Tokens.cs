@@ -1,4 +1,4 @@
-namespace Velox
+namespace Hellmo
 {
     public enum TokenType
     {

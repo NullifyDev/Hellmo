@@ -1,13 +1,13 @@
-using static Velox.Utils;
+using static Hellmo.Utils;
 
-namespace Velox
+namespace Hellmo
 {
     public static class Hex
     {
         static Parser parser = new Parser();
-        
+
         private static void VerboseLog(string msg) => parser.VerboseLog(msg, 2);
-        
+
         public static void ModAt(List<int> list, int pointer, int incrementBy = 0)
         {
             Hex.VerboseLog("Checking pointer location.");
@@ -29,18 +29,25 @@ namespace Velox
                 }
             }
         }
-        public static void SetAt(Arr stack, int pointer, int setTo = 0) {
+        public static void SetAt(Hellmo.Stack stack, int pointer, int setTo = 0)
+        {
+            Var var = new();
             Hex.VerboseLog("Checking pointer location.");
-            if (stack.content.Count > pointer) {
-                stack.content[pointer] = setTo;
+            if (stack.Content.Count > pointer)
+            {
+                stack.Content[pointer].content = setTo;
             }
-            else {
+            else
+            {
                 Hex.VerboseLog($"Pointer Out Of Bounds. Target Location: {pointer}. Adding more indexes till target index reached...");
-                for (int i = stack.content.Count - 1; i < pointer; i++)
+                for (int i = stack.Content.Count - 1; i < pointer; i++)
                 {
-                    stack.content.Add(0);
+                    var.Type = Data.StringToVarDataType(stack.name.ToString());
+                    var.content = setTo;
+                    var.Length =  1;
+                    stack.Content.Add(var);
                     Hex.VerboseLog($"Done. Setting Address {pointer} to {setTo}");
-                    if (stack.content.Count > pointer) stack.content[pointer] = setTo;
+                    if (stack.Content.Count > pointer) stack.Content[pointer] = var;
                 }
             }
         }
@@ -52,23 +59,25 @@ namespace Velox
             else parser.AddError("PointerError", "POOR (Pointer Out of Range)");
             return 0;
         }
-        public static int JumpTo(int[] stack, int pointer) { 
-            Hex.VerboseLog("Checking pointer location."); 
-            return stack.Length > pointer ? pointer :  -1; 
+        public static int JumpTo(int[] stack, int pointer)
+        {
+            Hex.VerboseLog("Checking pointer location.");
+            return stack.Length > pointer ? pointer : -1;
         }
-        public static string TwosComplement(string hx) { 
-            Hex.VerboseLog($"Applying \"Two's Complement\" to {hx}"); 
+        public static string TwosComplement(string hx)
+        {
+            Hex.VerboseLog($"Applying \"Two's Complement\" to {hx}");
             return string.Format("{0:X}", (ushort)(~Convert.ToUInt32(hx.Remove(0, 2), 32) + 1));
         }
 
         public static int ToNumber(string hex) { 
             Hex.VerboseLog($"Converting {hex} to integer");
             return Convert.ToInt32(hex, 16);
-        }        
-        
-        
-        public static bool IsConvertableToNumber(string hex) { 
-            Hex.VerboseLog("Checking Conversion-ability..."); 
+        }
+
+        public static bool IsConvertableToNumber(string hex)
+        {
+            Hex.VerboseLog("Checking Conversion-ability...");
             return Convert.ToInt32(hex, 16) == null ? false : true;
         }
     }

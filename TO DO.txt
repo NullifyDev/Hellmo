@@ -1,0 +1,1 @@
+ - Find a way to make an array as List<Data> and apply it to Dictionary<int, List<Data>>

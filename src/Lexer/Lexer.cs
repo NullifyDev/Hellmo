@@ -1,8 +1,8 @@
 using System;
 using System.Text;
-using Velox;
+using Hellmo;
 
-namespace Velox
+namespace Hellmo
 {
     public class Lexer
     {
@@ -20,25 +20,25 @@ namespace Velox
             this.src = src;
             this.reserved = new Dictionary<string, TokenType>
             {
-                ["0x00"] = Velox.TokenType.Return,
-                ["0x01"] = Velox.TokenType.PointerUp,
-                ["0x02"] = Velox.TokenType.PointerDown,
-                ["0x03"] = Velox.TokenType.JumpInScript,
-                ["0x04"] = Velox.TokenType.JumpInStack,
-                ["0x05"] = Velox.TokenType.IncrPointer,
-                ["0x06"] = Velox.TokenType.DecrPointer,
-                ["0x07"] = Velox.TokenType.SetValToAddr,
-                ["0x08"] = Velox.TokenType.Print,
-                ["0x09"] = Velox.TokenType.If,
-                ["0x091"] = Velox.TokenType.Else,
-                ["0x0A"] = Velox.TokenType.Switch,
-                ["0x0A1"] = Velox.TokenType.Case,
-                ["0x0B"] = Velox.TokenType.Exit,
-                ["0x0C"] = Velox.TokenType.For,
-                ["0x0D"] = Velox.TokenType.While,
-                [":"] = Velox.TokenType._In,
-                ["in"] = Velox.TokenType._In,
-                ["0x0F"] = Velox.TokenType.Function
+                ["0x00"] = Hellmo.TokenType.Return,
+                ["0x01"] = Hellmo.TokenType.PointerUp,
+                ["0x02"] = Hellmo.TokenType.PointerDown,
+                ["0x03"] = Hellmo.TokenType.JumpInScript,
+                ["0x04"] = Hellmo.TokenType.JumpInStack,
+                ["0x05"] = Hellmo.TokenType.IncrPointer,
+                ["0x06"] = Hellmo.TokenType.DecrPointer,
+                ["0x07"] = Hellmo.TokenType.SetValToAddr,
+                ["0x08"] = Hellmo.TokenType.Print,
+                ["0x09"] = Hellmo.TokenType.If,
+                ["0x091"] = Hellmo.TokenType.Else,
+                ["0x0A"] = Hellmo.TokenType.Switch,
+                ["0x0A1"] = Hellmo.TokenType.Case,
+                ["0x0B"] = Hellmo.TokenType.Exit,
+                ["0x0C"] = Hellmo.TokenType.For,
+                ["0x0D"] = Hellmo.TokenType.While,
+                [":"] = Hellmo.TokenType._In,
+                ["in"] = Hellmo.TokenType._In,
+                ["0x0F"] = Hellmo.TokenType.Function
             };
         }
 
@@ -100,9 +100,9 @@ namespace Velox
 
             tokens.Add(token.Add(TokenType.EOF, "", line, null));
 
-            // As a kind of workaround to 01, check if the first token is a Velox.TokenType.EOL and remove it
+            // As a kind of workaround to 01, check if the first token is a Hellmo.TokenType.EOL and remove it
 
-            if (tokens[0].Type == Velox.TokenType.EOL)
+            if (tokens[0].Type == Hellmo.TokenType.EOL)
             {
                 tokens.Remove(tokens[0]);
             }
@@ -133,11 +133,11 @@ namespace Velox
             var hex = src.Substring(start, curr - start);
             if (hex.Contains("x") || hex.Contains("X"))
             {
-                addToken(Velox.TokenType.Hex, hex);
+                addToken(Hellmo.TokenType.Hex, hex);
             }
             else
             {
-                addToken(Velox.TokenType.NumberLit, hex);
+                addToken(Hellmo.TokenType.NumberLit, hex);
             }
             // if (Char.IsDigit(PeekNext())) {
             //     Console.WriteLine("Number Found");
@@ -158,7 +158,7 @@ namespace Velox
             }
             else
             {
-                addToken(Velox.TokenType.Identifier, identifier);
+                addToken(Hellmo.TokenType.Identifier, identifier);
             }
         }
 
@@ -204,7 +204,7 @@ namespace Velox
             }
 
             char value = char.Parse(substring);
-            addToken(Velox.TokenType.CharLit, value);
+            addToken(Hellmo.TokenType.CharLit, value);
         }
 
         private void scanString()
@@ -229,7 +229,7 @@ namespace Velox
 
             // Remove the surrounding quotes
             string value = src.Substring(start + 1, curr - start - 2);
-            addToken(Velox.TokenType.StringLit, value);
+            addToken(Hellmo.TokenType.StringLit, value);
         }
 
         private void scanToken()
@@ -237,17 +237,17 @@ namespace Velox
             char c = Next();
             switch (c)
             {
-                case  '[': addToken(Velox.TokenType.LeftBracket); break;
-                case  ']': addToken(Velox.TokenType.RightBracket); break;
-                case  ',': addToken(Velox.TokenType.Comma); break;
-                case  '.': addToken(Velox.TokenType.Dot); break;
-                case  '+': addToken(Velox.TokenType.Plus); break;
-                case  '*': addToken(Velox.TokenType.Star); break;
-                case  '=': addToken(Velox.TokenType.Equals); break;
-                case  '"': scanString(); break;
+                case '[': addToken(Hellmo.TokenType.LeftBracket); break;
+                case ']': addToken(Hellmo.TokenType.RightBracket); break;
+                case ',': addToken(Hellmo.TokenType.Comma); break;
+                case '.': addToken(Hellmo.TokenType.Dot); break;
+                case '+': addToken(Hellmo.TokenType.Plus); break;
+                case '*': addToken(Hellmo.TokenType.Star); break;
+                case '=': addToken(Hellmo.TokenType.Equals); break;
+                case '"': scanString(); break;
                 case '\'': scanChar(); break;
                 case '\\': // line continuation
-                case  ' ':
+                case ' ':
                 case '\r':
                 case '\t':
                     // Ignore whitespace
@@ -255,10 +255,10 @@ namespace Velox
                 case '\n':
                     if (PeekNext(ahead: -2) != '\\')
                     {
-                        // FIXME: 01: Kinda works but it still appends Velox.TokenType.EOL even if the line is actually empty
-                        if (Peek() != ' ' && tokens.Count == 0 || Peek() != '\0' || tokens[tokens.Count - 1].Type != Velox.TokenType.EOL)
+                        // FIXME: 01: Kinda works but it still appends Hellmo.TokenType.EOL even if the line is actually empty
+                        if (Peek() != ' ' && tokens.Count == 0 || Peek() != '\0' || tokens[tokens.Count - 1].Type != Hellmo.TokenType.EOL)
                         {
-                            addToken(Velox.TokenType.EOL);
+                            addToken(Hellmo.TokenType.EOL);
                         }
                         line++;
                     }

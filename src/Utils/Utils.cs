@@ -1,12 +1,15 @@
-namespace Velox {
-    public static class Utils {
+namespace Hellmo
+{
+    public static class Utils
+    {
         public static async void Sleep(int ms) => await Task.Delay(ms);
         public static void Error(string message) => Console.WriteLine($"\u001b[31m{message}\u001b[0m");
-        public static void Warning(string message) { 
-            Console.WriteLine($"\u001b[33m{message}\u001b[0m"); 
-            Environment.Exit(0); 
+        public static void Warning(string message)
+        {
+            Console.WriteLine($"\u001b[33m{message}\u001b[0m");
+            Environment.Exit(0);
         }
-        public static void Output(string message = "", int newLine = 0)
+        public static void Output(string? message = "", int newLine = 0)
         {
             string[] msg = message.Split(' ');
             string line = "";
@@ -28,15 +31,11 @@ namespace Velox {
                     "\\BW" => "\u001b[47m",
                     _ => $"{msg[i]}"
                 };
-                if (i < msg.Count()) { line += " "; }
+                if (i < msg.Count()-1) line += " ";
             }
-            if (newLine > 0)
-            {
-                for (int i = 1; i < newLine; i++) if (i < newLine-1) line += "\n";
-                Console.WriteLine($"{line}");
-            }
+            if (newLine == 1) Console.Write($"{line}\n");
             else Console.Write($"{line}");
         }
-        public static void Outputln(string msg) => Utils.Output(msg, 1);
+        public static void Outputln(string? msg = "") => Utils.Output(msg, 1);
     }
 }

@@ -57,11 +57,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/velox/velox/velox.csproj",
-      "projectName": "velox",
-      "projectPath": "/home/velox/velox/velox.csproj",
+      "projectUniqueName": "/home/velox/Hellmo/Hellmo.csproj",
+      "projectName": "Hellmo",
+      "projectPath": "/home/velox/Hellmo/Hellmo.csproj",
       "packagesPath": "/home/velox/.nuget/packages/",
-      "outputPath": "/home/velox/velox/obj/",
+      "outputPath": "/home/velox/Hellmo/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/velox/.nuget/NuGet/NuGet.Config"
