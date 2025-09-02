@@ -1,3 +1,5 @@
+# THIS IS ASS! I AM ALREADY REWRITING THIS AS OF 2ND AUG 2025!!
+
 # Hellmo
 Elmo welcomes you to hell!<br>
 This is a low-to-high-end languge, designed to be flexible.<br>
@@ -65,3 +67,4 @@ Instead, you have:
 <img src="image.webp" alt="drawing" width="200"/>
 
 <ins> Do note that this is a prototype of the C++ version (which is the actual version) of this project/repo. The actual version will come out at its initial release </ins>
+
